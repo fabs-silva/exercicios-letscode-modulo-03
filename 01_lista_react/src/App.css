@@ -1,0 +1,36 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 4rem;
+  gap: 1.5rem;
+}
+
+.singleImageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.singleImage {
+  width: 180px;
+  height: auto;
+}
+
+.imageCarouselContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.imageCarousel {
+  max-width: 350px;
+  height: auto;
+}
