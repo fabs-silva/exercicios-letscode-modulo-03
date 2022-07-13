@@ -1,0 +1,24 @@
+.chat-ballon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 0.5rem;
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.2);
+  width: 15rem;
+  padding: 2rem;
+}
+
+.chat-ballon.receiver {
+  background-color: #dedede;
+  color: #333;
+}
+
+.chat-ballon.sender {
+  background-color: #2c88ac;
+  color: #fff;
+}
+
+.image-size {
+  width: 6rem;
+}
