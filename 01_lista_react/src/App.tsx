@@ -1,11 +1,12 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Menu } from './components/Menu';
-import GithubUsers from './GithubUsers';
-import Chat from './pages/Chat';
-import Counter from './pages/Counter';
-import Home from './pages/Home';
-import ImageGallery from './pages/ImageGallery';
-import PresenceList from './pages/PresenceList';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Menu } from "./components/Menu";
+import Chat from "./pages/Chat";
+import Counter from "./pages/Counter";
+import GithubUsers from "./pages/GithubUsers";
+import Home from "./pages/Home";
+import ImageGallery from "./pages/ImageGallery";
+import LightDark from "./pages/LightDark";
+import PresenceList from "./pages/PresenceList";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/contador" element={<Counter />} />
         <Route path="/lista-presenca" element={<PresenceList />} />
         <Route path="/usuarios-github" element={<GithubUsers />} />
+        <Route path="/light-dark" element={<LightDark />} />
       </Routes>
     </BrowserRouter>
   );

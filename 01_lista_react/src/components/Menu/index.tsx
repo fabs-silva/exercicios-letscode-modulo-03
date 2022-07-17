@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export function Menu() {
   return (
@@ -9,6 +9,7 @@ export function Menu() {
       <Link to="/contador">Contador</Link>
       <Link to="/lista-presenca">Lista de Presença</Link>
       <Link to="/usuarios-github">Usuários Github</Link>
+      <Link to="/light-dark">Light and Dark</Link>
     </>
   );
 }
