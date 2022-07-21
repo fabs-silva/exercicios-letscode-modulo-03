@@ -1,0 +1,50 @@
+.lightBackground {
+  background-color: #fff;
+}
+
+.darkBackground {
+  background-color: #1c1d1c;
+}
+
+.lightTitle {
+  color: #0a2446;
+}
+
+.darkTitle {
+  color: #ffff80;
+}
+
+.lightMainText {
+  color: #1c1d1c;
+}
+
+.darkMainText {
+  color: #ededed;
+}
+
+.lightMenu,
+.darkMenu {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 10rem;
+}
+
+.lightMenu {
+  background-color: #ededed;
+  color: #3f3f3f;
+}
+
+.darkMenu {
+  background-color: #3f3f3f;
+  color: #fff;
+}
+
+.lightLinks,
+.darkLinks {
+  display: flex;
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.lightLinks {
+}
