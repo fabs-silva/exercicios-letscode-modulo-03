@@ -17,3 +17,7 @@ export const AddQuoteButton = styled(Button)`
 export const DeleteQuoteButton = styled(Button)`
   background: ${colors.mainRed};
 `;
+
+export const RegularButton = styled(Button)`
+  background: ${colors.mainBlue};
+`;

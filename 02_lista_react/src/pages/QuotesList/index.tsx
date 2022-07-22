@@ -1,8 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { frases, IFrase } from '../../assets/frases';
-import { AddQuoteButton, DeleteQuoteButton } from '../../components/Button';
+import {
+  AddQuoteButton,
+  DeleteQuoteButton,
+  RegularButton,
+} from '../../components/Button';
 import {
   ButtonsArea,
+  ButtonsContainer,
   ErrorMessage,
   ListContainer,
   ListItem,
@@ -13,7 +18,9 @@ import {
 export function QuoteList() {
   const [quotes, setQuotes] = useState<IFrase[]>([]);
   const [error, setError] = useState<string>('');
+  const [goToTop, setGoToTop] = useState<boolean>(false);
   let liRef = useRef(null);
+  let topBottomRef = useRef(null);
 
   function addQuotes(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -36,6 +43,7 @@ export function QuoteList() {
 
     setQuotes([...quotes, nextQuote]);
     setError('');
+    setGoToTop(false);
   }
 
   function removeQuotes(e: React.MouseEvent<HTMLButtonElement>) {
@@ -53,6 +61,17 @@ export function QuoteList() {
 
     setQuotes(filteredQuotes);
     setError('');
+    setGoToTop(false);
+  }
+
+  function scrollToTop(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setGoToTop(true);
+  }
+
+  function scrollToBottom(e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setGoToTop(false);
   }
 
   useEffect(() => {
@@ -63,17 +82,37 @@ export function QuoteList() {
     }
   }, [quotes]);
 
+  useEffect(() => {
+    if (topBottomRef.current) {
+      if (goToTop) {
+        topBottomRef?.current?.scrollIntoView({
+          behavior: 'smooth',
+        });
+      } else {
+        liRef?.current?.scrollIntoView({
+          behavior: 'smooth',
+        });
+      }
+    }
+  }, [goToTop]);
+
   return (
     <QuotesContainer>
       <ButtonsArea>
-        <AddQuoteButton onClick={addQuotes}>Adicionar Frase</AddQuoteButton>
-        <DeleteQuoteButton onClick={removeQuotes}>
-          Remover Frase
-        </DeleteQuoteButton>
+        <ButtonsContainer>
+          <AddQuoteButton onClick={addQuotes}>Adicionar Frase</AddQuoteButton>
+          <DeleteQuoteButton onClick={removeQuotes}>
+            Remover Frase
+          </DeleteQuoteButton>
+        </ButtonsContainer>
         {error && <ErrorMessage>{error}</ErrorMessage>}
+        <ButtonsContainer>
+          <RegularButton onClick={scrollToTop}>Topo ⋀</RegularButton>
+          <RegularButton onClick={scrollToBottom}>Fim ⋁</RegularButton>
+        </ButtonsContainer>
       </ButtonsArea>
       <TextAreaContainer>
-        <ListContainer>
+        <ListContainer ref={topBottomRef}>
           {quotes.map((quote: IFrase) => {
             return (
               <ListItem key={quote.id} ref={liRef}>

@@ -13,8 +13,14 @@ const QuotesContainer = styled.section`
 const ButtonsArea = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   width: 10vw;
-  gap: 1rem;
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 `;
 
 const ErrorMessage = styled.p`
@@ -50,6 +56,7 @@ const ListItem = styled.li`
 export {
   QuotesContainer,
   ButtonsArea,
+  ButtonsContainer,
   ErrorMessage,
   TextAreaContainer,
   ListContainer,

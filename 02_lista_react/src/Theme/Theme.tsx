@@ -4,8 +4,9 @@ export const variables = {
     mainWhite: '#ffffff',
     mainGreen: '#4f906d',
     mainRed: '#cc0000',
+    mainBlue: '#38788b',
     mainGray: '#929292',
-    lightGray: '#f6f6f6',
+    lightGray: '#f3f2f2',
     darkGray: '#444444',
   },
   fonts: {

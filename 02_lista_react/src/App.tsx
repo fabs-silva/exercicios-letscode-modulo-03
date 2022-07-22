@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { Menu } from './components/Menu';
 import { Home } from './pages/Home';
 import { QuoteList } from './pages/QuotesList';
+import { TicTacToe } from './pages/TicTacToe';
+import { Timer } from './pages/Timer';
 import { GlobalStyle } from './Theme/globalStyles';
 
 const AppContainer = styled.main`
@@ -26,8 +28,8 @@ function App() {
           <Route path="/" element={<App />} />
           <Route index element={<Home />} />
           <Route path="/frases-chaves" element={<QuoteList />} />
-          <Route path="/jogo-da-velha" element={<QuoteList />} />
-          <Route path="/timer" element={<QuoteList />} />
+          <Route path="/jogo-da-velha" element={<TicTacToe />} />
+          <Route path="/timer" element={<Timer />} />
         </Routes>
       </AppContainer>
     </BrowserRouter>
