@@ -8,6 +8,6 @@
 
 - [x] Quando o usuário clicar em "remover mensagem", remova a mensagem mais recente.
 
-- [] Em ambos os eventos (adicionar ou remover), a caixa de texto deve realizar o scroll até o seu final de maneira automática.
+- [x] Em ambos os eventos (adicionar ou remover), a caixa de texto deve realizar o scroll até o seu final de maneira automática.
 
-- [] Exiba mensagens de erro abaixo dos botões caso o usuário tente adicionar uma mensagem quando a lista estiver esgotada ou remover uma mensagem quando a caixa de texto estiver vazia. A mensagem de erro deverá ser removida assim que o usuário realizar uma ação bem-sucedida.
+- [x] Exiba mensagens de erro abaixo dos botões caso o usuário tente adicionar uma mensagem quando a lista estiver esgotada ou remover uma mensagem quando a caixa de texto estiver vazia. A mensagem de erro deverá ser removida assim que o usuário realizar uma ação bem-sucedida.

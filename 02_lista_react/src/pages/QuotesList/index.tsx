@@ -1,17 +1,19 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { frases, IFrases } from '../../assets/frases';
+import { useEffect, useRef, useState } from 'react';
+import { frases, IFrase } from '../../assets/frases';
 import { AddQuoteButton, DeleteQuoteButton } from '../../components/Button';
-import { TextArea } from '../../components/TextArea';
-
-const ButtonsArea = styled.section`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
+import {
+  ButtonsArea,
+  ErrorMessage,
+  ListContainer,
+  ListItem,
+  QuotesContainer,
+  TextAreaContainer,
+} from './style';
 
 export function QuoteList() {
-  const [quotes, setQuotes] = useState<IFrases[]>([]);
+  const [quotes, setQuotes] = useState<IFrase[]>([]);
+  const [error, setError] = useState<string>('');
+  let liRef = useRef(null);
 
   function addQuotes(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
@@ -19,6 +21,7 @@ export function QuoteList() {
 
     if (lastQuotesIndex < 0) {
       setQuotes([...quotes, frases[lastQuotesIndex + 1]]);
+      setError('');
       return;
     }
 
@@ -27,10 +30,12 @@ export function QuoteList() {
     );
 
     if (!nextQuote) {
+      setError('Você chegou a final da lista de frases!');
       return;
     }
 
     setQuotes([...quotes, nextQuote]);
+    setError('');
   }
 
   function removeQuotes(e: React.MouseEvent<HTMLButtonElement>) {
@@ -38,7 +43,7 @@ export function QuoteList() {
     const lastQuotesIndex = quotes.length - 1;
 
     if (lastQuotesIndex < 0) {
-      console.log('lastQuotesIndex menor que 0');
+      setError('A lista de frases já está vazia');
       return;
     }
 
@@ -46,25 +51,38 @@ export function QuoteList() {
       (quote) => quote.id !== quotes[lastQuotesIndex].id
     );
 
-    if (!filteredQuotes) {
-      console.log('filteredQuotes vazio');
-      return;
-    }
-
     setQuotes(filteredQuotes);
+    setError('');
   }
 
-  useEffect(() => {}, [quotes]);
+  useEffect(() => {
+    if (liRef.current) {
+      liRef.current.scrollIntoView({
+        behavior: 'smooth',
+      });
+    }
+  }, [quotes]);
 
   return (
-    <>
+    <QuotesContainer>
       <ButtonsArea>
         <AddQuoteButton onClick={addQuotes}>Adicionar Frase</AddQuoteButton>
         <DeleteQuoteButton onClick={removeQuotes}>
           Remover Frase
         </DeleteQuoteButton>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
       </ButtonsArea>
-      <TextArea quotes={quotes} />
-    </>
+      <TextAreaContainer>
+        <ListContainer>
+          {quotes.map((quote: IFrase) => {
+            return (
+              <ListItem key={quote.id} ref={liRef}>
+                {quote.frase}
+              </ListItem>
+            );
+          })}
+        </ListContainer>
+      </TextAreaContainer>
+    </QuotesContainer>
   );
 }

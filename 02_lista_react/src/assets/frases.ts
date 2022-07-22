@@ -1,9 +1,9 @@
-export interface IFrases {
+export interface IFrase {
   id: number;
   frase: string;
 }
 
-export const frases: IFrases[] = [
+export const frases: IFrase[] = [
   {
     id: 0,
     frase: 'Já chegou o disco voador.',
@@ -69,5 +69,9 @@ export const frases: IFrases[] = [
   {
     id: 14,
     frase: 'Não se enrugue couro velho que te quero pra tambor.',
+  },
+  {
+    id: 15,
+    frase: 'Cacuquei tetinhu.',
   },
 ];

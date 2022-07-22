@@ -1,17 +1,19 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import styled from 'styled-components';
 import { Menu } from './components/Menu';
+import { Home } from './pages/Home';
 import { QuoteList } from './pages/QuotesList';
 import { GlobalStyle } from './Theme/globalStyles';
 
 const AppContainer = styled.main`
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  width: 80%;
   height: 100vh;
-  padding: 2rem 4rem;
-  gap: 3rem;
+  padding: 3rem 4rem;
+  gap: 4rem;
+  width: calc(100vw - 8rem);
+  max-width: 920px;
 `;
 
 function App() {
@@ -22,6 +24,7 @@ function App() {
         <Menu />
         <Routes>
           <Route path="/" element={<App />} />
+          <Route index element={<Home />} />
           <Route path="/frases-chaves" element={<QuoteList />} />
           <Route path="/jogo-da-velha" element={<QuoteList />} />
           <Route path="/timer" element={<QuoteList />} />
