@@ -1,4 +1,4 @@
-# Exercício 01
+## Exercício 01
 
 - [x] Armazene uma lista de mensagens pré-definidas (como falas de um diálogo de um filme, por exemplo).
 
@@ -12,21 +12,21 @@
 
 - [x] Exiba mensagens de erro abaixo dos botões caso o usuário tente adicionar uma mensagem quando a lista estiver esgotada ou remover uma mensagem quando a caixa de texto estiver vazia. A mensagem de erro deverá ser removida assim que o usuário realizar uma ação bem-sucedida.
 
-# Exercício 02
+## Exercício 02
 
 - [x] Modifique o exercício anterior para acrescentar botões "Topo" e "Fim", que fazem scroll, respectivamente, para a primeira ou para a última linha da caixa de texto.
 
-# Exercícios 03
+## Exercícios 03
 
-- [] Faça um jogo da velha. Ele deverá permitir jogadas a partir de cliques alternando entre X e O.
+- [x] Faça um jogo da velha. Ele deverá permitir jogadas a partir de cliques alternando entre X e O.
 
-- [] Ao final do jogo, o vencedor deverá ser exibido.
+- [x] Ao final do jogo, o vencedor deverá ser exibido.
 
-- [] O jogo deve possuir um botão de "Restart" que deve ser desabilitado quando o tabuleiro estiver vazio.
+- [x] O jogo deve possuir um botão de "Restart" que deve ser desabilitado quando o tabuleiro estiver vazio.
 
 - [] O jogo deve permitir a visualização de seu histórico: a cada jogada, adicione um botão novo à interface. Esses botões deverão ser numerados indicando a qual jogada eles correspondem. Cada um desses botões exibe o tabuleiro no estado em que ele se encontrava naquela jogada.
 
-# Exercício 04
+## Exercício 04
 
 - [x] Crie uma página contendo um timer no formato mm:ss.
 

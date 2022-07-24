@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
-import { variables } from './Theme';
+import { createGlobalStyle } from "styled-components";
+import { variables } from "./Theme";
 
 const { colors, fonts, fontWeight } = variables;
 
@@ -38,7 +38,7 @@ export const GlobalStyle = createGlobalStyle`
   
   button:disabled {
     background-color: ${colors.mainGray};
-    color: ${colors.mainBlack};
+    color: ${colors.mainWhite};
     cursor: inherit;
   }
   
