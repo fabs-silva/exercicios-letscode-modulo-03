@@ -8,6 +8,7 @@ export const variables = {
     mainGray: '#929292',
     lightGray: '#f3f2f2',
     darkGray: '#444444',
+    blackAlpha: 'rgba(0, 0, 0, 0.1)',
   },
   fonts: {
     text: 'Nunito, sans-serif',

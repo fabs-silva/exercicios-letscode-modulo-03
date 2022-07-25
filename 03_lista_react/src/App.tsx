@@ -1,12 +1,14 @@
-import { Component } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import styled from "styled-components";
-import { Menu } from "./components/Menu";
-import { Home } from "./pages/Home";
-import { QuoteList } from "./pages/QuotesList";
-import { TicTacToe } from "./pages/TicTacToe";
-import { Timer } from "./pages/Timer";
-import { GlobalStyle } from "./Theme/globalStyles";
+import { Component } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import styled from 'styled-components';
+import { Menu } from './components/Menu';
+import { Home } from './pages/Home';
+import { MoviesList } from './pages/MoviesList';
+import { ProductsList } from './pages/ProductsList';
+import { QuoteList } from './pages/QuotesList';
+import { TicTacToe } from './pages/TicTacToe';
+import { Timer } from './pages/Timer';
+import { GlobalStyle } from './Theme/globalStyles';
 
 const AppContainer = styled.main`
   display: flex;
@@ -32,6 +34,8 @@ export default class App extends Component {
             <Route path="/frases-chaves" element={<QuoteList />} />
             <Route path="/jogo-da-velha" element={<TicTacToe />} />
             <Route path="/timer" element={<Timer />} />
+            <Route path="/lista-produtos" element={<ProductsList />} />
+            <Route path="/lista-filmes" element={<MoviesList />} />
           </Routes>
         </AppContainer>
       </BrowserRouter>

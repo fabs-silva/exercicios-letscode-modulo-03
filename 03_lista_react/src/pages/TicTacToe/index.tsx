@@ -1,14 +1,11 @@
-import React, { Component } from "react";
-import { RegularButton } from "../../components/Button";
-import { GameTiles } from "./GameTiles";
-import { GameWinner } from "./GameWinner";
-import { getWinner } from "./getWinner";
-import { GameArea, GameContainer, GameTitle } from "./styles";
+import React, { Component } from 'react';
+import { RegularButton } from '../../components/Button';
+import { GameTiles } from './GameTiles';
+import { GameWinner } from './GameWinner';
+import { getWinner } from './getWinner';
+import { GameArea, GameContainer, GameTitle } from './styles';
 
-type GameProps = {
-  winner: string | null;
-  isBoardEmpty: boolean;
-};
+type GameProps = {};
 
 type GameStates = {
   tiles: Array<string | null>;
@@ -24,13 +21,9 @@ export class TicTacToe extends Component<GameProps, GameStates> {
       isXPlaying: true,
     };
 
-    this.winner;
-    this.isBoardEmpty;
     this.handleClickTiles = this.handleClickTiles.bind(this);
     this.resetGame = this.resetGame.bind(this);
   }
-  winner = getWinner(this.state.tiles);
-  isBoardEmpty = this.state.tiles.every((element) => element === null);
 
   handleClickTiles = (i: number) => {
     const allTiles = this.state.tiles.slice();
@@ -38,20 +31,23 @@ export class TicTacToe extends Component<GameProps, GameStates> {
       return;
     }
     this.setState({ isXPlaying: !this.state.isXPlaying });
-    allTiles[i] = this.state.isXPlaying ? "X" : "O";
+    allTiles[i] = this.state.isXPlaying ? 'X' : 'O';
     this.setState({ tiles: allTiles });
   };
 
   resetGame = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    this.setState({ tiles: new Array(9).fill(null) });
+    this.setState({ tiles: new Array(9).fill(null), isXPlaying: true });
   };
 
   render() {
+    const winner = getWinner(this.state.tiles);
+    const isBoardEmpty = this.state.tiles.every((element) => element === null);
+
     return (
       <GameContainer>
         <GameTitle>Jogo da Velha</GameTitle>
-        {this.winner ? <GameWinner winner={this.winner} /> : null}
+        {winner ? <GameWinner winner={winner} /> : null}
         <GameArea>
           <GameTiles
             value={this.state.tiles[0]}
@@ -90,7 +86,7 @@ export class TicTacToe extends Component<GameProps, GameStates> {
             onClick={() => this.handleClickTiles(8)}
           />
         </GameArea>
-        <RegularButton onClick={this.resetGame} disabled={this.isBoardEmpty}>
+        <RegularButton onClick={this.resetGame} disabled={isBoardEmpty}>
           Resetar
         </RegularButton>
       </GameContainer>
