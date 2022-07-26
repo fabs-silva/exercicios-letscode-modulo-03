@@ -1,12 +1,7 @@
-import {
-  IListaProdutos,
-  listaProdutos,
-} from '../../../../assets/list-products-obj';
-
-import { useState } from 'react';
-import styled from 'styled-components';
-import { variables } from '../../../../Theme/Theme';
-import { ProductItem } from '../ProductItem';
+import styled from "styled-components";
+import { IListaProdutos } from "../../../../assets/list-products-obj";
+import { variables } from "../../../../Theme/Theme";
+import { ProductItem } from "../ProductItem";
 
 const { colors } = variables;
 
@@ -21,25 +16,17 @@ const ProductsContainer = styled.section`
   padding: 1.5rem 0;
 `;
 
-export function Products() {
-  const [updatedList, setUpdatedList] =
-    useState<IListaProdutos[]>(listaProdutos);
-
-  const passListAsProps = (updateProduct: IListaProdutos) => {
-    const filteredList = updatedList.filter(
-      (prod) => prod.id !== updateProduct.id
-    );
-    console.log(updateProduct);
-    setUpdatedList([...filteredList, updateProduct]);
-  };
-
+export function Products(props: {
+  productsList: IListaProdutos[];
+  passListAsProps: (product: IListaProdutos) => void;
+}) {
   return (
     <ProductsContainer>
-      {listaProdutos.map((prod: IListaProdutos) => {
+      {props.productsList.map((prod: IListaProdutos) => {
         return (
           <ProductItem
             product={prod}
-            passListAsProps={passListAsProps}
+            passListAsProps={props.passListAsProps}
             key={prod.id}
           />
         );

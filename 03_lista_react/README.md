@@ -40,9 +40,9 @@
 
 - [x] Faça uma página exibindo alguns produtos.
 
-- [] Permita que o usuário selecione a quantidade desses produtos para adicionar ao carrinho.
+- [x] Permita que o usuário selecione a quantidade desses produtos para adicionar ao carrinho.
 
-- [] Permita que o usuário visualize seu carrinho exibindo a quantidade de cada produto adicionado, o valor unitário dos produtos e o valor total.
+- [x] Permita que o usuário visualize seu carrinho exibindo a quantidade de cada produto adicionado, o valor unitário dos produtos e o valor total.
 
 ## Exercício 06
 
