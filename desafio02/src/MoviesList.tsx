@@ -8,6 +8,8 @@ export type IMovies = {
   id: string;
   name: string;
   year: number;
+  director: string;
+  image: string;
 };
 
 const MoviesListContainer = styled.section`
