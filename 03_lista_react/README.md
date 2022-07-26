@@ -46,10 +46,10 @@
 
 ## Exercício 06
 
-- [] Faça uma página que permita que o usuário crie uma lista de filmes assistidos e uma lista de filmes para assistir.
+- [x] Faça uma página que permita que o usuário crie uma lista de filmes assistidos e uma lista de filmes para assistir.
 
-- [] Filmes novos devem ser cadastrados na lista de filmes para assistir, digitando seu nome e ano de lançamento.
+- [x] Filmes novos devem ser cadastrados na lista de filmes para assistir, digitando seu nome e ano de lançamento.
 
-- [] Filmes podem ser movidos da lista de filmes novos para a lista de assistidos.
+- [x] Filmes podem ser movidos da lista de filmes novos para a lista de assistidos.
 
-- [] O usuário deve poder visualizar cada uma das listas.
+- [x] O usuário deve poder visualizar cada uma das listas.
