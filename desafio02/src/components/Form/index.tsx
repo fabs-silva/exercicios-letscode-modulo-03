@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { IMovies } from "../../MoviesList";
-import { variables } from "../../Theme/variables";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { IMovies } from '../../MoviesList';
+import { variables } from '../../Theme/variables';
 
 const { colors, fontSizes, fontWeight } = variables;
 
@@ -55,11 +55,38 @@ const SaveMovieButton = styled.button`
 export function Form(props: {
   passMoviesToWatchAsProps: (movie: IMovies) => void;
 }) {
-  const [movieNameInput, setMovieNameInput] = useState<string>("");
-  const [movieYearInput, setMovieYearInput] = useState<string>("");
+  const [movieNameInput, setMovieNameInput] = useState<string>('');
+  const [movieYearInput, setMovieYearInput] = useState<string>('');
+  const [loadingData, setLoadingData] = useState<boolean>(false);
   const [movieDataApi, setMovieDataApi] = useState<IMovies>({} as IMovies);
 
   useEffect(() => {
+    async function getMovieData() {
+      const requestOptions = {
+        method: 'GET',
+        redirect: 'follow',
+      };
+      setLoadingData(true);
+      const response = await fetch(
+        `https://imdb-api.com/en/API/SearchMovie/{apiKey}/${movieNameInput} ${movieYearInput}/`,
+        requestOptions
+      );
+      const movieData = await response.text();
+
+      setMovieDataApi({
+        id: movieData.id,
+        name: movieNameInput,
+        year: parseInt(movieYearInput),
+        director: movieData.director,
+        image: movieData.image,
+      });
+
+      setLoadingData(false);
+    }
+
+    getMovieData();
+
+    //
     //Search Movie search/movie?api_key=00f17259d23a00ff4bf8b4443792c2ba&query=Toy%20Story&page=1 -> results -> [0]
     //Search Director /movie/{movie_id}/credits
   }, [movieNameInput]);
@@ -93,15 +120,15 @@ export function Form(props: {
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           e.preventDefault();
           props.passMoviesToWatchAsProps({
-            id: /*id*/ 1,
+            id: /*id*/ 'aaa',
             name: movieNameInput,
             year: parseInt(movieYearInput),
-            image: /* poster_path */ "aaa",
+            image: /* poster_path */ 'aaa',
             director:
-              /*/movie/{movie_id}/credits - crew - job: director */ "aaa",
+              /*/movie/{movie_id}/credits - crew - job: director */ 'aaa',
           });
-          setMovieNameInput("");
-          setMovieYearInput("");
+          setMovieNameInput('');
+          setMovieYearInput('');
         }}
       >
         Cadastrar

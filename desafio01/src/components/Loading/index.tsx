@@ -1,7 +1,5 @@
-import Pokeball from "../../assets/pokeball.svg";
+import { ReactComponent as Pokeball } from '../../assets/pokeball.svg';
 
-function Loading() {
-  return <Pokeball />;
+export function Loading() {
+  return <Pokeball className="loader" />;
 }
-
-export default Loading;

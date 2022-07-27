@@ -1,11 +1,11 @@
-import { useState } from "react";
-import { Form } from "./components/Form";
-import { MoviesToWatch } from "./components/MoviesToWatch";
-import { WatchedMovies } from "./components/WatchedMovies";
-import { ListsContainer, MoviesListContainer } from "./Theme/style";
+import { useState } from 'react';
+import { Form } from './components/Form';
+import { MoviesToWatch } from './components/MoviesToWatch';
+import { WatchedMovies } from './components/WatchedMovies';
+import { ListsContainer, MoviesListContainer } from './Theme/style';
 
 export type IMovies = {
-  id: number;
+  id: string;
   name: string;
   year: number;
   director: string;
