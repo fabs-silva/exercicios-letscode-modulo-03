@@ -1,9 +1,26 @@
-import styled from 'styled-components';
-import { variables } from './variables';
+import styled from "styled-components";
+import { variables } from "./variables";
 
 const { colors, fontSizes, fontWeight } = variables;
 
-const ListContainer = styled.div`
+const MoviesListContainer = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 1100px;
+  padding: 1.5rem;
+`;
+const ListsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+`;
+
+const SingleListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -47,4 +64,11 @@ const MovieData = styled.p`
   }
 `;
 
-export { ListContainer, ListTitle, MovieItem, MovieData };
+export {
+  MoviesListContainer,
+  ListsContainer,
+  SingleListContainer,
+  ListTitle,
+  MovieItem,
+  MovieData,
+};

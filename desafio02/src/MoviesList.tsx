@@ -1,33 +1,16 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import { Form } from './components/Form';
-import { MoviesToWatch } from './components/MoviesToWatch';
-import { WatchedMovies } from './components/WatchedMovies';
+import { useState } from "react";
+import { Form } from "./components/Form";
+import { MoviesToWatch } from "./components/MoviesToWatch";
+import { WatchedMovies } from "./components/WatchedMovies";
+import { ListsContainer, MoviesListContainer } from "./Theme/style";
 
 export type IMovies = {
-  id: string;
+  id: number;
   name: string;
   year: number;
   director: string;
   image: string;
 };
-
-const MoviesListContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 1100px;
-  padding: 1.5rem;
-`;
-const ListsContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  width: 100%;
-`;
 
 export function MoviesList() {
   const [moviesToWatchList, setMoviesToWatchList] = useState<IMovies[]>(

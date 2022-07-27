@@ -1,14 +1,14 @@
-import { IMovies } from '../../MoviesList';
+import { IMovies } from "../../MoviesList";
 import {
-  ListContainer,
   ListTitle,
   MovieData,
   MovieItem,
-} from '../../Theme/style';
+  SingleListContainer,
+} from "../../Theme/style";
 
 export function WatchedMovies(props: { movies: IMovies[] }) {
   return (
-    <ListContainer>
+    <SingleListContainer>
       <ListTitle>Filmes Assistidos</ListTitle>
       {props.movies.map((movie: IMovies) => {
         return (
@@ -19,6 +19,6 @@ export function WatchedMovies(props: { movies: IMovies[] }) {
           </MovieItem>
         );
       })}
-    </ListContainer>
+    </SingleListContainer>
   );
 }

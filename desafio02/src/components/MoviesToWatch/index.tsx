@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { IMovies } from '../../MoviesList';
+import React from "react";
+import styled from "styled-components";
+import { IMovies } from "../../MoviesList";
 import {
-  ListContainer,
   ListTitle,
   MovieData,
   MovieItem,
-} from '../../Theme/style';
-import { variables } from '../../Theme/variables';
+  SingleListContainer,
+} from "../../Theme/style";
+import { variables } from "../../Theme/variables";
 
 const { colors } = variables;
 
@@ -21,7 +21,7 @@ export function MoviesToWatch(props: {
   passWatchedMoviesAsProps: (movie: IMovies) => void;
 }) {
   return (
-    <ListContainer>
+    <SingleListContainer>
       <ListTitle>Filmes a Assistir</ListTitle>
       {props.movies.map((movie: IMovies) => {
         return (
@@ -40,6 +40,6 @@ export function MoviesToWatch(props: {
           </MovieItem>
         );
       })}
-    </ListContainer>
+    </SingleListContainer>
   );
 }

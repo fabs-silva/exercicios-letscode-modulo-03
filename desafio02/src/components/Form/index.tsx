@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { v4 } from 'uuid';
-import { IMovies } from '../../MoviesList';
-import { variables } from '../../Theme/variables';
+import React, { useEffect, useState } from "react";
+import styled from "styled-components";
+import { IMovies } from "../../MoviesList";
+import { variables } from "../../Theme/variables";
 
 const { colors, fontSizes, fontWeight } = variables;
 
@@ -56,8 +55,15 @@ const SaveMovieButton = styled.button`
 export function Form(props: {
   passMoviesToWatchAsProps: (movie: IMovies) => void;
 }) {
-  const [movieNameInput, setMovieNameInput] = useState<string>('');
-  const [movieYearInput, setMovieYearInput] = useState<string>('');
+  const [movieNameInput, setMovieNameInput] = useState<string>("");
+  const [movieYearInput, setMovieYearInput] = useState<string>("");
+  const [movieDataApi, setMovieDataApi] = useState<IMovies>({} as IMovies);
+
+  useEffect(() => {
+    //Search Movie search/movie?api_key=00f17259d23a00ff4bf8b4443792c2ba&query=Toy%20Story&page=1 -> results -> [0]
+    //Search Director /movie/{movie_id}/credits
+  }, [movieNameInput]);
+
   return (
     <FormContainer>
       <FormTitle>Cadastrar Novo Filme</FormTitle>
@@ -87,12 +93,15 @@ export function Form(props: {
         onClick={(e: React.MouseEvent<HTMLButtonElement>) => {
           e.preventDefault();
           props.passMoviesToWatchAsProps({
-            id: v4(),
+            id: /*id*/ 1,
             name: movieNameInput,
             year: parseInt(movieYearInput),
+            image: /* poster_path */ "aaa",
+            director:
+              /*/movie/{movie_id}/credits - crew - job: director */ "aaa",
           });
-          setMovieNameInput('');
-          setMovieYearInput('');
+          setMovieNameInput("");
+          setMovieYearInput("");
         }}
       >
         Cadastrar
