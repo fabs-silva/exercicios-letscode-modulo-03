@@ -36,6 +36,15 @@ function App() {
     setSearchedPokemon(pokemon);
   };
 
+  const clearAllData = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setSearchedPokemon('');
+    setPokemonApiData({} as Pokemon);
+    setIsLoading(false);
+    setLoaded(false);
+    setTextNoPokemon('Nenhum Pokémon para exibir ainda');
+  };
+
   useEffect(() => {
     async function getPokemonData() {
       if (searchedPokemon === '') {
@@ -87,7 +96,10 @@ function App() {
     <>
       <GlobalStyle />
       <AppContainer>
-        <SearchForm passPokemonAsProps={passPokemonAsProps} />
+        <SearchForm
+          passPokemonAsProps={passPokemonAsProps}
+          clearAllData={clearAllData}
+        />
         <SearchResults
           pokemon={pokemonApiData}
           isLoading={isLoading}

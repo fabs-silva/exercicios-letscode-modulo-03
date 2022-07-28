@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import {
   SearchFormButton,
+  SearchFormButtonContainer,
   SearchFormContainer,
   SearchFormFieldset,
 } from './styles';
 
 export function SearchForm(props: {
   passPokemonAsProps: (inputValue: string) => void;
+  clearAllData: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }) {
   const [inputValue, setInputValue] = useState<string>('');
 
@@ -27,7 +29,10 @@ export function SearchForm(props: {
           onChange={(e) => setInputValue(e.target.value)}
         />
       </SearchFormFieldset>
-      <SearchFormButton onClick={handleClick}>Pesquisar</SearchFormButton>
+      <SearchFormButtonContainer>
+        <SearchFormButton onClick={handleClick}>Pesquisar</SearchFormButton>
+        <SearchFormButton onClick={props.clearAllData}>Limpar</SearchFormButton>
+      </SearchFormButtonContainer>
     </SearchFormContainer>
   );
 }

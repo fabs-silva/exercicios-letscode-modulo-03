@@ -30,12 +30,22 @@ const SearchFormFieldset = styled.fieldset`
   }
 `;
 
+const SearchFormButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`;
+
 const SearchFormButton = styled.button`
   font-family: ${fonts.title};
   color: ${colors.mainYellow};
   background-color: ${colors.mainBlue};
-  font-size: ${fontSizes.md};
-  padding: 0.75rem 2rem;
+  padding: 0.6rem 1.5rem;
 `;
 
-export { SearchFormContainer, SearchFormFieldset, SearchFormButton };
+export {
+  SearchFormContainer,
+  SearchFormFieldset,
+  SearchFormButton,
+  SearchFormButtonContainer,
+};
