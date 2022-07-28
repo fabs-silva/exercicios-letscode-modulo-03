@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-  min-height: 100vh;
+  height: 100vh;
   background-color: ${colors.mainWhite};
   color: ${colors.darkGray};
   font-family: ${fonts.text};

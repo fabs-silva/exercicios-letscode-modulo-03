@@ -1,9 +1,22 @@
 import styled from 'styled-components';
 import { variables } from '../../Styles/variables';
 
-const { colors, fontWeight, fonts, fontSizes } = variables;
+const { colors, fontWeight, fontSizes } = variables;
 
 const SearchResultsContainer = styled.section`
+  border: 4px solid rgba(53, 106, 188, 1);
+  width: 750px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const SearchResultsPokemon = styled.div`
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
   background: linear-gradient(
     45deg,
     rgba(255, 255, 255, 1) 0%,
@@ -17,29 +30,79 @@ const SearchResultsContainer = styled.section`
     rgba(255, 255, 255, 1) 90%,
     rgba(255, 255, 255, 1) 100%
   );
-  border: 4px solid rgba(18, 142, 143, 1);
+  height: 100%;
 `;
 
-const SearchResultsPokemon = styled.div`
-  width: 700px;
-  padding: 3rem;
+const SearchResultsImage = styled.div`
+  & img {
+    width: 12rem;
+  }
+`;
+
+const SearchResultsInfo = styled.div`
+  width: 100%;
+  padding: 0 1.5rem;
+`;
+
+const SearchResultsTitle = styled.div`
   display: flex;
-  gap: 5rem;
+  align-items: center;
+  background: linear-gradient(
+    135deg,
+    rgba(252, 207, 0, 1) 0%,
+    rgba(252, 207, 0, 1) 30%,
+    rgba(0, 0, 0, 1) 30%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  padding: 0.5rem 1rem;
+  font-weight: ${fontWeight.xl};
+  margin-bottom: 0.75rem;
 `;
 
-const SearchResultsImage = styled.img`
-  width: 12rem;
+const SearchResultsNumber = styled.div`
+  width: 32%;
 `;
 
-const SearchResultsInfo = styled.div``;
-const SearchResultsTitle = styled.div``;
-const SearchResultsNumber = styled.div``;
-const SearchResultsName = styled.div``;
-const SearchResultsTable = styled.div``;
-const SearchResultsTableTitle = styled.p``;
-const SearchResultsTableRow = styled.div``;
-const SearchResultsPropName = styled.p``;
-const SearchResultsPropResult = styled.p``;
+const SearchResultsName = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 68%;
+  font-size: calc(${fontSizes.lg} + 0.2rem);
+  color: ${colors.mainWhite};
+`;
+
+const SearchResultsTable = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+`;
+
+const SearchResultsTableTitle = styled.p`
+  text-align: center;
+  background-color: ${colors.mainGray};
+  width: 100%;
+  padding: 0.5rem 0;
+  font-weight: ${fontWeight.lg};
+`;
+
+const SearchResultsTableRow = styled.div`
+  display: flex;
+`;
+
+const SearchResultsPropName = styled.p`
+  width: 35%;
+  padding: 0.5rem 0;
+  background-color: ${colors.mainGray};
+  text-align: center;
+  font-weight: ${fontWeight.lg};
+`;
+
+const SearchResultsPropResult = styled.p`
+  width: 65%;
+  padding: 0.5rem 0 0.5rem 1rem;
+  background-color: ${colors.mainWhite};
+`;
 
 export {
   SearchResultsContainer,

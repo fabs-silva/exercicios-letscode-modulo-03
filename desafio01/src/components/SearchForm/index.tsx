@@ -5,13 +5,16 @@ import {
   SearchFormFieldset,
 } from './styles';
 
-export function SearchForm() {
+export function SearchForm(props: {
+  passPokemonAsProps: (inputValue: string) => void;
+}) {
   const [inputValue, setInputValue] = useState<string>('');
 
-  /*   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setInputValue("");
-  }; */
+    props.passPokemonAsProps(inputValue);
+    setInputValue('');
+  };
 
   return (
     <SearchFormContainer>
@@ -24,7 +27,7 @@ export function SearchForm() {
           onChange={(e) => setInputValue(e.target.value)}
         />
       </SearchFormFieldset>
-      <SearchFormButton>Pesquisar</SearchFormButton>
+      <SearchFormButton onClick={handleClick}>Pesquisar</SearchFormButton>
     </SearchFormContainer>
   );
 }
