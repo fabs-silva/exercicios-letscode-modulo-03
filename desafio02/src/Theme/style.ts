@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { variables } from "./variables";
+import styled from 'styled-components';
+import { variables } from './variables';
 
 const { colors, fontSizes, fontWeight } = variables;
 
@@ -56,12 +56,29 @@ const MovieItem = styled.div`
   }
 `;
 
-const MovieData = styled.p`
-  font-size: ${fontSizes.md};
+const MovieData = styled.div`
+  display: flex;
+  gap: 0.5rem;
+`;
 
-  & span {
-    font-weight: ${fontWeight.xl};
-  }
+const MovieImage = styled.img``;
+
+const MovieInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const MovieName = styled.p`
+  font-weight: ${fontWeight.xl};
+  font-size: ${fontSizes.lg};
+`;
+
+const MovieDirector = styled.p`
+  font-weight: ${fontWeight.md};
+`;
+
+const MovieYear = styled.p`
+  font-weight: ${fontWeight.md};
 `;
 
 export {
@@ -71,4 +88,9 @@ export {
   ListTitle,
   MovieItem,
   MovieData,
+  MovieImage,
+  MovieInfo,
+  MovieName,
+  MovieDirector,
+  MovieYear,
 };

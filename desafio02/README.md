@@ -2,7 +2,7 @@
 
 - [x] Filmes novos devem ser cadastrados na lista de filmes para assistir, digitando seu nome e ano de lançamento.
 
-- [] O filme deve ser buscado automaticamente através da IMDB API, e através dela deve ser acrescentada automaticamente uma imagem do filme, o nome do diretor e o id do IMDB.
+- [x] O filme deve ser buscado automaticamente através da IMDB API, e através dela deve ser acrescentada automaticamente uma imagem do filme, o nome do diretor e o id do IMDB.
 
 - [x] Filmes podem ser movidos da lista de filmes novos para a lista de assistidos.
 

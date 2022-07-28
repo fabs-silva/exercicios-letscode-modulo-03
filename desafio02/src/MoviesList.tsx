@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { Form } from "./components/Form";
-import { MoviesToWatch } from "./components/MoviesToWatch";
-import { WatchedMovies } from "./components/WatchedMovies";
-import { ListsContainer, MoviesListContainer } from "./Theme/style";
+import { useEffect, useState } from 'react';
+import { Form } from './components/Form';
+import { MoviesToWatch } from './components/MoviesToWatch';
+import { WatchedMovies } from './components/WatchedMovies';
+import { ListsContainer, MoviesListContainer } from './Theme/style';
 
 export type IMovies = {
   id: number;
@@ -60,7 +60,7 @@ export function MoviesList() {
       const creditsData = await responseCredits.json();
 
       const director = creditsData.crew.find(
-        (member) => member.job === "Director"
+        (member: any) => member.job === 'Director'
       );
 
       const movie = {

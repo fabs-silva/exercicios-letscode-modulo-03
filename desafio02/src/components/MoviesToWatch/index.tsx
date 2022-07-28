@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { IMovies } from "../../MoviesList";
+import React from 'react';
+import styled from 'styled-components';
+import { IMovies } from '../../MoviesList';
 import {
   ListTitle,
   MovieData,
   MovieItem,
   SingleListContainer,
-} from "../../Theme/style";
-import { variables } from "../../Theme/variables";
+} from '../../Theme/style';
+import { variables } from '../../Theme/variables';
 
 const { colors } = variables;
 
