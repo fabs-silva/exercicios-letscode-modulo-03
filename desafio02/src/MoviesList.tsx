@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import { Form } from './components/Form';
-import { MoviesToWatch } from './components/MoviesToWatch';
-import { WatchedMovies } from './components/WatchedMovies';
-import { ListsContainer, MoviesListContainer } from './Theme/style';
+import { useEffect, useState } from "react";
+import { Form } from "./components/Form";
+import { MoviesToWatch } from "./components/MoviesToWatch";
+import { WatchedMovies } from "./components/WatchedMovies";
+import { ErrorText, ListsContainer, MoviesListContainer } from "./Theme/style";
 
 export type IMovies = {
   id: number;
@@ -20,7 +20,7 @@ export function MoviesList() {
   const [watchedMoviesList, setWatchedMoviesList] = useState<IMovies[]>(
     [] as IMovies[]
   );
-  const [loadingData, setLoadingData] = useState<boolean>(false);
+  const [errorMsg, setErrorMsg] = useState<string>("");
 
   const passMoviesToWatchAsProps = ([movieName, movieYear]: string[]) => {
     setMovieInputs([movieName, movieYear]);
@@ -38,8 +38,6 @@ export function MoviesList() {
 
   useEffect(() => {
     async function getMovieData() {
-      setLoadingData(true);
-
       if (movieInputs.length === 0) {
         return;
       }
@@ -47,36 +45,34 @@ export function MoviesList() {
         `${import.meta.env.VITE_BASE_URL}/search/movie?api_key=${
           import.meta.env.VITE_API_KEY
         }&query=${movieInputs[0]}&page=1`
-      );
+      ).then((response) => response.json());
 
-      const movieData = await responseMovie.json();
+      if (responseMovie.total_results === 0) {
+        setErrorMsg("Filme não encontrado");
+        return;
+      }
 
       const responseCredits = await fetch(
         `${import.meta.env.VITE_BASE_URL}/movie/${
-          movieData.results[0].id
+          responseMovie.results[0].id
         }/credits?api_key=${import.meta.env.VITE_API_KEY}`
-      );
+      ).then((response) => response.json());
 
-      const creditsData = await responseCredits.json();
-
-      const director = creditsData.crew.find(
-        (member: any) => member.job === 'Director'
+      const director = responseCredits.crew.find(
+        (member: any) => member.job === "Director"
       );
 
       const movie = {
-        id: movieData.results[0].id,
-        name: movieData.results[0].title,
-        year: movieData.results[0].release_date.substring(0, 4),
+        id: responseMovie.results[0].id,
+        name: responseMovie.results[0].title,
+        year: responseMovie.results[0].release_date.substring(0, 4),
         director: director.name,
         image: `${import.meta.env.VITE_IMAGE_BASE_URL}/${
-          movieData.results[0].poster_path
+          responseMovie.results[0].poster_path
         }`,
       };
 
-      console.log(movie);
-
       setMoviesToWatchList([...moviesToWatchList, movie]);
-      setLoadingData(false);
     }
 
     getMovieData();
@@ -85,6 +81,7 @@ export function MoviesList() {
   return (
     <MoviesListContainer>
       <Form passMoviesToWatchAsProps={passMoviesToWatchAsProps} />
+      {errorMsg ? <ErrorText>{errorMsg}</ErrorText> : null}
       <ListsContainer>
         <MoviesToWatch
           passWatchedMoviesAsProps={passWatchedMoviesAsProps}

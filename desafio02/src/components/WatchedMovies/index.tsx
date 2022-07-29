@@ -1,10 +1,10 @@
 import { IMovies } from "../../MoviesList";
 import {
   ListTitle,
-  MovieData,
-  MovieItem,
+  MovieContainer,
   SingleListContainer,
 } from "../../Theme/style";
+import { MovieItem } from "../MovieItem";
 
 export function WatchedMovies(props: { movies: IMovies[] }) {
   return (
@@ -12,11 +12,9 @@ export function WatchedMovies(props: { movies: IMovies[] }) {
       <ListTitle>Filmes Assistidos</ListTitle>
       {props.movies.map((movie: IMovies) => {
         return (
-          <MovieItem>
-            <MovieData>
-              <span>{movie.name}</span> - {movie.year}
-            </MovieData>
-          </MovieItem>
+          <MovieContainer key={movie.id}>
+            <MovieItem movie={movie} />
+          </MovieContainer>
         );
       })}
     </SingleListContainer>

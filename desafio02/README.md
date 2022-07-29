@@ -6,4 +6,4 @@
 
 - [x] Filmes podem ser movidos da lista de filmes novos para a lista de assistidos.
 
-- [] O usuário deve poder visualizar cada uma das listas, onde cada filme será representado por sua imagem, nome, ano, diretor e id do IMDB.
+- [x] O usuário deve poder visualizar cada uma das listas, onde cada filme será representado por sua imagem, nome, ano, diretor e id do IMDB.

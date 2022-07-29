@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { variables } from './variables';
+import styled from "styled-components";
+import { variables } from "./variables";
 
 const { colors, fontSizes, fontWeight } = variables;
 
@@ -38,7 +38,7 @@ const ListTitle = styled.p`
   margin-bottom: 1.25rem;
 `;
 
-const MovieItem = styled.div`
+const MovieContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -58,14 +58,20 @@ const MovieItem = styled.div`
 
 const MovieData = styled.div`
   display: flex;
-  gap: 0.5rem;
+  gap: 1.25rem;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
 `;
 
-const MovieImage = styled.img``;
+const MovieImage = styled.img`
+  width: 100px;
+`;
 
 const MovieInfo = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 0.75rem;
 `;
 
 const MovieName = styled.p`
@@ -75,10 +81,16 @@ const MovieName = styled.p`
 
 const MovieDirector = styled.p`
   font-weight: ${fontWeight.md};
+  font-size: ${fontSizes.md};
 `;
 
 const MovieYear = styled.p`
   font-weight: ${fontWeight.md};
+  font-size: ${fontSizes.sm};
+`;
+
+const ErrorText = styled.p`
+  color: ${colors.mainRed};
 `;
 
 export {
@@ -86,11 +98,12 @@ export {
   ListsContainer,
   SingleListContainer,
   ListTitle,
-  MovieItem,
+  MovieContainer,
   MovieData,
   MovieImage,
   MovieInfo,
   MovieName,
   MovieDirector,
   MovieYear,
+  ErrorText,
 };

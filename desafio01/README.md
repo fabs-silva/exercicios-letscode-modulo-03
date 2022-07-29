@@ -8,6 +8,6 @@
 
 - [x] A área de exibição dos Pokémons deve exibir o nome, o id e o sprite padrão do Pokémon caso os dados cheguem com sucesso.
 
-- [] Caso a requisição retorne algum erro, exiba o código do erro e, caso haja, sua mensagem logo abaixo da barra de busca.
+- [x] Caso a requisição retorne algum erro, exiba o código do erro e, caso haja, sua mensagem logo abaixo da barra de busca.
 
 - [x] Inclua um botão "Limpar" que restaura o estado original da página: limpa possíveis mensagens de erro e/ou dados do último Pokémon buscado, retornando à mensagem de "Nenhum Pokémon para exibir ainda".
