@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { variables } from '../../Styles/variables';
+import styled from "styled-components";
+import { variables } from "../../Styles/variables";
 
 const { colors, fontWeight, fontSizes } = variables;
 
@@ -31,6 +31,7 @@ const SearchResultsPokemon = styled.div`
     rgba(255, 255, 255, 1) 100%
   );
   height: 100%;
+  width: 100%;
 `;
 
 const SearchResultsImage = styled.div`

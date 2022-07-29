@@ -1,6 +1,6 @@
-import { CgPokemon } from 'react-icons/cg';
-import { Pokemon } from '../../App';
-import { Loading } from '../Loading';
+import { CgPokemon } from "react-icons/cg";
+import { Pokemon } from "../../App";
+import { Loading } from "../Loading";
 import {
   SearchResultsContainer,
   SearchResultsImage,
@@ -14,7 +14,7 @@ import {
   SearchResultsTableRow,
   SearchResultsTableTitle,
   SearchResultsTitle,
-} from './styles';
+} from "./styles";
 
 type SearchResultProps = {
   pokemon: Pokemon;
@@ -45,17 +45,17 @@ const SearchPokemonContainer = (props: {
   textNoPokemon: string;
 }) => {
   return (
-    <SearchResultsContainer>
+    <>
       {props.loaded ? (
         <SearchPokemon pokemon={props.pokemon} />
       ) : (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-          <CgPokemon style={{ fontSize: '2rem' }} />
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+          <CgPokemon style={{ fontSize: "2rem" }} />
           {props.textNoPokemon}
-          <CgPokemon style={{ fontSize: '2rem' }} />
+          <CgPokemon style={{ fontSize: "2rem" }} />
         </div>
       )}
-    </SearchResultsContainer>
+    </>
   );
 };
 
@@ -86,7 +86,7 @@ const SearchPokemon = (props: { pokemon: Pokemon }) => {
           <SearchResultsTableRow>
             <SearchResultsPropName>Height</SearchResultsPropName>
             <SearchResultsPropResult>
-              {props.pokemon.height}
+              {props.pokemon.height} pol.
             </SearchResultsPropResult>
           </SearchResultsTableRow>
           <SearchResultsTableRow>

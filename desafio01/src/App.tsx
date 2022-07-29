@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import { SearchForm } from './components/SearchForm';
-import { SearchResults } from './components/SearchResults';
-import { GlobalStyle } from './Styles/globalStyles';
+import { useEffect, useState } from "react";
+import styled from "styled-components";
+import { SearchForm } from "./components/SearchForm";
+import { SearchResults } from "./components/SearchResults";
+import { GlobalStyle } from "./Styles/globalStyles";
 
 const AppContainer = styled.main`
   display: flex;
@@ -24,12 +24,12 @@ export type Pokemon = {
 };
 
 function App() {
-  const [searchedPokemon, setSearchedPokemon] = useState<string>('');
+  const [searchedPokemon, setSearchedPokemon] = useState<string>("");
   const [pokemonApiData, setPokemonApiData] = useState<Pokemon>({} as Pokemon);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [loaded, setLoaded] = useState<boolean>(false);
   const [textNoPokemon, setTextNoPokemon] = useState<string>(
-    'Nenhum Pokémon para exibir ainda'
+    "Nenhum Pokémon para exibir ainda"
   );
 
   const passPokemonAsProps = (pokemon: string) => {
@@ -38,16 +38,16 @@ function App() {
 
   const clearAllData = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    setSearchedPokemon('');
+    setSearchedPokemon("");
     setPokemonApiData({} as Pokemon);
     setIsLoading(false);
     setLoaded(false);
-    setTextNoPokemon('Nenhum Pokémon para exibir ainda');
+    setTextNoPokemon("Nenhum Pokémon para exibir ainda");
   };
 
   useEffect(() => {
     async function getPokemonData() {
-      if (searchedPokemon === '') {
+      if (searchedPokemon === "") {
         setIsLoading(false);
         setLoaded(false);
         return;
@@ -58,26 +58,29 @@ function App() {
       )
         .then((response) => response.json())
         .then((result) => result)
-        .catch(() => setTextNoPokemon('Pokemon não encontrado'));
+        .catch(() => setTextNoPokemon("Pokemon não encontrado"));
 
-      const responsePokemon = promisePokemon.value;
+      if (!promisePokemon) {
+        return;
+      }
 
-      const speciesUrl = responsePokemon.species.url;
+      const speciesUrl = promisePokemon.species.url;
 
       const promisePokemonSpecies = await fetch(speciesUrl)
         .then((response) => response.json())
         .then((result) => result);
 
-      const pokemonGenus = promisePokemonSpecies.value.genera.genus;
+      const pokemonGenus = promisePokemonSpecies.genera[7].genus;
+      console.log(pokemonGenus);
 
       setPokemonApiData({
-        id: responsePokemon.id,
-        name: responsePokemon.name,
+        id: promisePokemon.id,
+        name: promisePokemon.name,
         specie: pokemonGenus,
-        type: responsePokemon.types.type[0].name,
-        image: responsePokemon.sprites.other['official-artwork'].front_default,
-        height: responsePokemon.height,
-        weight: responsePokemon.weight,
+        type: promisePokemon.types[0].type.name,
+        image: promisePokemon.sprites.other["official-artwork"].front_default,
+        height: promisePokemon.height,
+        weight: promisePokemon.weight,
       });
 
       setLoaded(true);
